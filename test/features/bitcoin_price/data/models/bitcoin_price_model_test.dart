@@ -25,7 +25,7 @@ void main() {
     'fromJson',
     () {
       test(
-        'should return a valid model',
+        'should return a valid model and data',
         () async {
           // arrange
           final Map<String, dynamic> jsonMap =
@@ -34,6 +34,44 @@ void main() {
           final result = BitcoinPriceModel.fromJson(jsonMap);
           // assert
           expect(result, tBitcoinPriceModel);
+        },
+      );
+    },
+  );
+
+  group(
+    'fromJson',
+    () {
+      test(
+        'should return a valid model and data',
+        () async {
+          // arrange
+          final Map<String, dynamic> jsonMap =
+              json.decode(fixture('coindesk_currentprice.json'));
+          // act
+          final result = BitcoinPriceModel.fromJson(jsonMap);
+          // assert
+          expect(result, tBitcoinPriceModel);
+        },
+      );
+    },
+  );
+
+  group(
+    'toJson',
+    () {
+      test(
+        'should return a valid json and data',
+        () async {
+          // act
+          final result = tBitcoinPriceModel.toJson();
+          // assert
+          final expectedMap = {
+            "time": "2020-07-22T15:00:00+00:00",
+            "usdRate": 9358.1201,
+            "eurRate": 8109.7656,
+          };
+          expect(result, expectedMap);
         },
       );
     },

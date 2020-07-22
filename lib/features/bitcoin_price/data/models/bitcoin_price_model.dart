@@ -15,4 +15,12 @@ class BitcoinPriceModel extends BitcoinPrice {
       eurRate: double.parse(json['bpi']['EUR']['rate'].replaceAll(',', '')),
     );
   }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'time': time,
+      'usdRate': usdRate,
+      'eurRate': eurRate,
+    };
+  }
 }
