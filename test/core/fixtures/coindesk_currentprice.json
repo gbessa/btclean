@@ -1,0 +1,32 @@
+{
+  "time": {
+    "updated": "Jul 22, 2020 15:00:00 UTC",
+    "updatedISO": "2020-07-22T15:00:00+00:00",
+    "updateduk": "Jul 22, 2020 at 16:00 BST"
+  },
+  "disclaimer": "This data was produced from the CoinDesk Bitcoin Price Index (USD). Non-USD currency data converted using hourly conversion rate from openexchangerates.org",
+  "chartName": "Bitcoin",
+  "bpi": {
+    "USD": {
+      "code": "USD",
+      "symbol": "&#36;",
+      "rate": "9,358.1201",
+      "description": "United States Dollar",
+      "rate_float": 9358.1201
+    },
+    "GBP": {
+      "code": "GBP",
+      "symbol": "&pound;",
+      "rate": "7,357.6254",
+      "description": "British Pound Sterling",
+      "rate_float": 7357.6254
+    },
+    "EUR": {
+      "code": "EUR",
+      "symbol": "&euro;",
+      "rate": "8,109.7656",
+      "description": "Euro",
+      "rate_float": 8109.7656
+    }
+  }
+}
