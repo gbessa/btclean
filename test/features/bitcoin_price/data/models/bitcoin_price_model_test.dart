@@ -22,7 +22,7 @@ void main() {
   );
 
   group(
-    'fromJson',
+    'from External Json',
     () {
       test(
         'should return a valid model and data',
@@ -31,7 +31,7 @@ void main() {
           final Map<String, dynamic> jsonMap =
               json.decode(fixture('coindesk_currentprice.json'));
           // act
-          final result = BitcoinPriceModel.fromJson(jsonMap);
+          final result = BitcoinPriceModel.fromCoindeskJson(jsonMap);
           // assert
           expect(result, tBitcoinPriceModel);
         },
@@ -40,14 +40,14 @@ void main() {
   );
 
   group(
-    'fromJson',
+    'from internal Json',
     () {
       test(
         'should return a valid model and data',
         () async {
           // arrange
           final Map<String, dynamic> jsonMap =
-              json.decode(fixture('coindesk_currentprice.json'));
+              json.decode(fixture('cached_lastprice.json'));
           // act
           final result = BitcoinPriceModel.fromJson(jsonMap);
           // assert

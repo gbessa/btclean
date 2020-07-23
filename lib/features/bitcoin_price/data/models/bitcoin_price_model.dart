@@ -8,11 +8,19 @@ class BitcoinPriceModel extends BitcoinPrice {
     @required eurRate,
   }) : super(time: time, usdRate: usdRate, eurRate: eurRate);
 
-  factory BitcoinPriceModel.fromJson(Map<String, dynamic> json) {
+  factory BitcoinPriceModel.fromCoindeskJson(Map<String, dynamic> json) {
     return BitcoinPriceModel(
       time: json['time']['updatedISO'],
       usdRate: double.parse(json['bpi']['USD']['rate'].replaceAll(',', '')),
       eurRate: double.parse(json['bpi']['EUR']['rate'].replaceAll(',', '')),
+    );
+  }
+
+  factory BitcoinPriceModel.fromJson(Map<String, dynamic> json) {
+    return BitcoinPriceModel(
+      time: json['time'],
+      usdRate: json['usdRate'],
+      eurRate: json['eurRate'],
     );
   }
 
