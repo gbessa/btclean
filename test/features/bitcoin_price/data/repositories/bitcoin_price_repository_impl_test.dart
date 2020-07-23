@@ -1,6 +1,6 @@
 import 'package:btclean/core/error/exceptions.dart';
 import 'package:btclean/core/error/failures.dart';
-import 'package:btclean/core/platform/network_info.dart';
+import 'package:btclean/core/network/network_info.dart';
 import 'package:btclean/features/bitcoin_price/data/datasources/bitcoin_price_local_data_source.dart';
 import 'package:btclean/features/bitcoin_price/data/datasources/bitcoin_price_remote_data_source.dart';
 import 'package:btclean/features/bitcoin_price/data/models/bitcoin_price_model.dart';
@@ -32,6 +32,24 @@ void main() {
         networkInfo: mockNetworkInfo);
   });
 
+  void runTestsOnLine(Function body) {
+    group('device is online', () {
+      setUp(() {
+        when(mockNetworkInfo.isConnected).thenAnswer((_) async => true);
+      });
+      body();
+    });
+  }
+
+  void runTestsOffLine(Function body) {
+    group('device is offline', () {
+      setUp(() {
+        when(mockNetworkInfo.isConnected).thenAnswer((_) async => false);
+      });
+      body();
+    });
+  }
+
   group('getCurrentPrice', () {
     final tBitcoinPriceModel =
         BitcoinPriceModel(time: 'now', usdRate: 1.0, eurRate: 2.0);
@@ -49,11 +67,7 @@ void main() {
       },
     );
 
-    group('device is online', () {
-      setUp(() {
-        when(mockNetworkInfo.isConnected).thenAnswer((_) async => true);
-      });
-
+    runTestsOnLine(() {
       test('should return remote data when the call is success', () async {
         // arrange
         when(mockRemoteDataSource.getCurrentPrice())
@@ -88,11 +102,7 @@ void main() {
       });
     });
 
-    group('device is offline', () {
-      setUp(() {
-        when(mockNetworkInfo.isConnected).thenAnswer((_) async => false);
-      });
-
+    runTestsOffLine(() {
       test(
           'should return locally cached last data when the cache data is present',
           () async {

@@ -1,6 +1,6 @@
 import 'package:btclean/core/error/exceptions.dart';
 import 'package:btclean/core/error/failures.dart';
-import 'package:btclean/core/platform/network_info.dart';
+import 'package:btclean/core/network/network_info.dart';
 import 'package:btclean/features/bitcoin_price/data/datasources/bitcoin_price_local_data_source.dart';
 import 'package:btclean/features/bitcoin_price/data/datasources/bitcoin_price_remote_data_source.dart';
 import 'package:btclean/features/bitcoin_price/domain/entities/bitcoin_price.dart';
