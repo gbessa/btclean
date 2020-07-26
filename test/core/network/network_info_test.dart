@@ -11,7 +11,8 @@ void main() {
 
   setUp(() {
     mockDataConnectionChecker = MockDataConnectionChecker();
-    networkInfoImpl = NetworkInfoImpl(mockDataConnectionChecker);
+    networkInfoImpl =
+        NetworkInfoImpl(connectionChecker: mockDataConnectionChecker);
   });
 
   test('should forward the call to DataConnectionChecker', () async {
