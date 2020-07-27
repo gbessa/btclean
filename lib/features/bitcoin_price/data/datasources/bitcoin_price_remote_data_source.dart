@@ -1,10 +1,11 @@
 import 'dart:convert';
 
+import 'package:http/http.dart' as http;
+import 'package:meta/meta.dart';
+
 import 'package:btclean/core/error/exceptions.dart';
 import 'package:btclean/features/bitcoin_price/data/models/bitcoin_price_model.dart';
 import 'package:btclean/features/bitcoin_price/domain/entities/bitcoin_price.dart';
-import 'package:http/http.dart' as http;
-import 'package:meta/meta.dart';
 
 abstract class BitcoinPriceRemoteDataSource {
   /// Call the https://api.coindesk.com/v1/bpi/currentprice.json endpoint.
@@ -17,8 +18,9 @@ const CURRENT_PRICE_ENDPOINT =
     'https://api.coindesk.com/v1/bpi/currentprice.json';
 
 class BitcoinPriceRemoteDataSourceImpl implements BitcoinPriceRemoteDataSource {
-  BitcoinPriceRemoteDataSourceImpl({@required this.client});
   final http.Client client;
+
+  BitcoinPriceRemoteDataSourceImpl({@required this.client});
 
   @override
   Future<BitcoinPrice> getCurrentPrice() async {

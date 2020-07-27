@@ -10,5 +10,8 @@ class BitcoinPrice extends Equatable {
     @required this.time,
     @required this.usdRate,
     @required this.eurRate,
-  }) : super([time, usdRate, eurRate]);
+  });
+
+  @override
+  List<Object> get props => [time, usdRate, eurRate];
 }

@@ -2,7 +2,8 @@ part of 'bitcoin_price_bloc.dart';
 
 @immutable
 abstract class BitcoinPriceEvent extends Equatable {
-  BitcoinPriceEvent();
+  @override
+  List<Object> get props => [];
 }
 
 class GetBitCoinCurrentPrice extends BitcoinPriceEvent {}

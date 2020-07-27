@@ -2,7 +2,8 @@ part of 'bitcoin_price_bloc.dart';
 
 @immutable
 abstract class BitcoinPriceState extends Equatable {
-  BitcoinPriceState([List props = const <dynamic>[]]) : super(props);
+  @override
+  List<Object> get props => [];
 }
 
 class Empty extends BitcoinPriceState {}
@@ -12,11 +13,11 @@ class Loading extends BitcoinPriceState {}
 class Loaded extends BitcoinPriceState {
   final BitcoinPrice bitcoinPrice;
 
-  Loaded({@required this.bitcoinPrice}) : super([bitcoinPrice]);
+  Loaded({@required this.bitcoinPrice});
 }
 
 class Error extends BitcoinPriceState {
   final String message;
 
-  Error({@required this.message}) : super([message]);
+  Error({@required this.message});
 }

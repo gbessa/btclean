@@ -28,15 +28,21 @@ Future<void> init() async {
   sl.registerLazySingleton(() => GetCurrentPrice(sl()));
 
   // Repository
-  sl.registerLazySingleton<BitCoinPriceRepository>(() =>
-      BitcoinPriceRepositoryImpl(
-          localDataSource: sl(), networkInfo: sl(), remoteDataSource: sl()));
+  sl.registerLazySingleton<BitCoinPriceRepository>(
+      () => BitcoinPriceRepositoryImpl(
+            localDataSource: sl(),
+            networkInfo: sl(),
+            remoteDataSource: sl(),
+          ));
 
   // Data Sources
-  sl.registerLazySingleton<BitcoinPriceRemoteDataSource>(
-      () => BitcoinPriceRemoteDataSourceImpl(client: sl()));
   sl.registerLazySingleton<BitcoinPriceLocalDataSource>(
-      () => BitcoinPriceLocalDataSourceImpl(sharedPreferences: sl()));
+    () => BitcoinPriceLocalDataSourceImpl(sharedPreferences: sl()),
+  );
+
+  sl.registerLazySingleton<BitcoinPriceRemoteDataSource>(
+    () => BitcoinPriceRemoteDataSourceImpl(client: sl()),
+  );
 
   // 2. Core
   sl.registerLazySingleton(() => InputConverter());

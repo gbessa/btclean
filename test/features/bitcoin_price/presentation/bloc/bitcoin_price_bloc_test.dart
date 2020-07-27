@@ -43,7 +43,7 @@ void main() {
         when(mockGetCurrentPrice(any))
             .thenAnswer((_) async => Right(tBitcoinPrice));
         // act
-        bloc.dispatch(GetBitCoinCurrentPrice());
+        bloc.add(GetBitCoinCurrentPrice());
         await untilCalled(mockGetCurrentPrice(any));
         // assert
         verify(mockGetCurrentPrice(NoParams()));
@@ -62,9 +62,9 @@ void main() {
           Loading(),
           Loaded(bitcoinPrice: tBitcoinPrice)
         ];
-        expectLater(bloc.state, emitsInOrder(expected));
+        expectLater(bloc, emitsInOrder(expected));
         // act
-        bloc.dispatch(GetBitCoinCurrentPrice());
+        bloc.add(GetBitCoinCurrentPrice());
       },
     );
 
@@ -80,9 +80,9 @@ void main() {
           Loading(),
           Error(message: SERVER_FAILURE_MESSAGE)
         ];
-        expectLater(bloc.state, emitsInOrder(expected));
+        expectLater(bloc, emitsInOrder(expected));
         // act
-        bloc.dispatch(GetBitCoinCurrentPrice());
+        bloc.add(GetBitCoinCurrentPrice());
       },
     );
 
@@ -92,15 +92,15 @@ void main() {
         // arrange
         when(mockGetCurrentPrice(any))
             .thenAnswer((_) async => Left(CacheFailure()));
-        // assert
+        // assert later
         final expected = [
           Empty(),
           Loading(),
           Error(message: CACHE_FAILURE_MESSAGE)
         ];
-        expectLater(bloc.state, emitsInOrder(expected));
+        expectLater(bloc, emitsInOrder(expected));
         // act
-        bloc.dispatch(GetBitCoinCurrentPrice());
+        bloc.add(GetBitCoinCurrentPrice());
       },
     );
   });

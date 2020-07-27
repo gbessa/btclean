@@ -31,4 +31,7 @@ class BitcoinPriceModel extends BitcoinPrice {
       'eurRate': eurRate,
     };
   }
+
+  @override
+  List<Object> get props => [];
 }
