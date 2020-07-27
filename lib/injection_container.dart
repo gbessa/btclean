@@ -36,12 +36,13 @@ Future<void> init() async {
           ));
 
   // Data Sources
-  sl.registerLazySingleton<BitcoinPriceLocalDataSource>(
-    () => BitcoinPriceLocalDataSourceImpl(sharedPreferences: sl()),
-  );
+  sl.registerLazySingleton(() => http.Client());
 
   sl.registerLazySingleton<BitcoinPriceRemoteDataSource>(
     () => BitcoinPriceRemoteDataSourceImpl(client: sl()),
+  );
+  sl.registerLazySingleton<BitcoinPriceLocalDataSource>(
+    () => BitcoinPriceLocalDataSourceImpl(sharedPreferences: sl()),
   );
 
   // 2. Core

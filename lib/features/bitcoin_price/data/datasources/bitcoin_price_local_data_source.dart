@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:btclean/core/error/exceptions.dart';
 import 'package:btclean/features/bitcoin_price/data/models/bitcoin_price_model.dart';
-import 'package:btclean/features/bitcoin_price/domain/entities/bitcoin_price.dart';
 import 'package:meta/meta.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

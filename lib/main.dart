@@ -1,3 +1,4 @@
+import 'package:btclean/core/config/app_colors.dart';
 import 'package:btclean/features/bitcoin_price/presentation/pages/bitcoin_price_page.dart';
 import 'package:flutter/material.dart';
 import 'injection_container.dart' as di;
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Bitcoin Price',
-      theme: ThemeData(primaryColor: Color.fromRGBO(112, 199, 115, 1.0)),
+      theme: ThemeData(primaryColor: AppColors.mainColor),
       home: BitcoinPricePage(),
     );
   }
