@@ -1,17 +1,16 @@
-# btclean
+# btclean app
 
-A new Flutter project.
+It's a Flutter App built for learning purposes of the Clean Architecture applied to Flutter projects.
 
-## Getting Started
+Basically its functionality is to fetch the bitcoin current price.
 
-This project is a starting point for a Flutter application.
+The project was totaly based on the Reso Coder's free Tutorial which I think is one of the best materials to learn Flutter nowadays.
 
-A few resources to get you started if this is your first Flutter project:
+## OPEN API SOURCE
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+- [API Source: Coindesk](https://www.coindesk.com/price/bitcoin)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-# btclean
+
+## FREE TUTORIAL
+
+- [Clean Architecture + TDD in Flutter](https://resocoder.com/flutter-clean-architecture-tdd)
