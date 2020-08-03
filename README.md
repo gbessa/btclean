@@ -1,5 +1,7 @@
-# ![BTCLEAN APP](bitcoin.png)
+<img align="left" width="100" height="100" src="bitcoin.png" />
 
+# BTCLEAN APP
+<br><br>
 It's a Flutter App built for learning purposes of the Clean Architecture applied to Flutter projects.
 
 Basically its functionality is to fetch the bitcoin current price.
