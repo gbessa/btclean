@@ -1,4 +1,4 @@
-# btclean app
+# ![BTCLEAN APP](bitcoin.png)
 
 It's a Flutter App built for learning purposes of the Clean Architecture applied to Flutter projects.
 
